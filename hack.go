@@ -22,9 +22,6 @@ func main() {
 
 //Create the file to write the log out to. This will be where you run the executable
   f, err := os.OpenFile("WebAttack.log",
-
-
-
 	os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 if err != nil {
 	log.Println(err)
