@@ -1,5 +1,5 @@
 This is the start of a web application penetration testing application.
-The first part has been complete and peforms the following:  
+The first part step peforms the following:  
 
 04/12/2020  
 1. Takes a URL target and checks for directories that might be of interest  
