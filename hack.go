@@ -7,6 +7,7 @@ import (
     "os/user"
     "log"
     "net/http"
+    "time"
 )
 //end import packages
 
@@ -43,15 +44,17 @@ logger := log.New(f, "prefix", log.LstdFlags)
   logger.Println("********************************************")
 
 //start url discovery array - These are the droids we are going to look for
-dirsAndFiles := []string{"admin", "test", "testing", "demo", "dev", "development", "secure", "adm", "bak", "backup", "back", "logs", "log", "archive", "old", "~root", "inc", "js", "global", "local", "de", "en", "isapi", "wp-admin", "mail", "readme", "README", "ToDo", "todo", "changes", "Changes", "install.txt", "Install.txt", "config.inc", "install.inc", "password.inc", "connection.inc", "global.js", "local.js", "menu.js", "toolbar.js", "adovbs.inc", "database.inc", "db.inc", "sql", "SQL", "template", "templates", "temp", "tmp", "cgi-bin", "bin", "src", "robots.txt"}
+dirsAndFiles := []string{"admin", "test", "testing", "demo", "dev", "development", "secure", "adm", "bak", "backup", "back", "logs", "log", "archive", "old", "~root", "inc", "js", "global", "local", "de", "en", "isapi", "wp-admin", "mail", "readme", "README", "ToDo", "todo", "changes", "Changes", "install.txt", "Install.txt", "config.inc", "install.inc", "password.inc", "connection.inc", "global.js", "local.js", "menu.js", "toolbar.js", "adovbs.inc", "database.inc", "db.inc", "sql", "SQL", "template", "templates", "temp", "tmp", "cgi-bin", "bin", "src", "robots.txt", "shell", "java", "porn", "secret", "hidden", "vpn", "passwords", "hr", "oldsite", "administrator", "citrix", "vnc", "firewall", "software", "portal", "stats", "awstats", "cpanel", "whm", "share", "tools", "aux", "ssl", "cert", "certs", "downloads", "uploads", "warez", "pwned", "hacked", "mysql", "webmin", "phpmyadmin", "plesk", "sharepoint", "calendar"}
 //En of array
 
-//Loop through the array
+//Loop through the array"
  for _, hackDirsandFiles := range  dirsAndFiles {
   result := domain + "/" + hackDirsandFiles
 
 //Send the http request for the target URL and append the directory or file from the array above
   resp, err := http.Get(result)
+  //wait two seconds between requests so it doesn't look too much like scanning, but it's still scanning and can be detected with the right controls
+  time.Sleep(2 * time.Second)
   if err !=nil {
     log.Fatal(err)
   }
